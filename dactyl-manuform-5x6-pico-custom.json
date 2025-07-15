@@ -1,0 +1,137 @@
+{
+    "version": 1,
+    "notes": "Dactyl Manuform 5x6 with Pi Pico - Custom build with encoders, OLED, and RGB",
+    "documentation": "Right-side only build with dual encoders, OLED display, and RGB underglow",
+    "keyboard": "handwired/dactyl_manuform_5x6_pico_custom",
+    "keymap": "default",
+    "layout": "LAYOUT_5x6",
+    "config": {
+        "encoder_map": true,
+        "encoder_enable": true,
+        "oled_enable": true,
+        "rgblight_enable": true
+    },
+    "keyboard_config": {
+        "manufacturer": "Custom",
+        "keyboard_name": "dactyl_manuform_5x6_pico_custom",
+        "maintainer": "almang45",
+        "processor": "RP2040",
+        "bootloader": "rp2040",
+        "usb": {
+            "device_version": "1.0.0",
+            "pid": "0x0001",
+            "vid": "0xCUST"
+        },
+        "features": {
+            "bootmagic": true,
+            "extrakey": true,
+            "mousekey": true,
+            "nkro": true,
+            "encoder": true,
+            "oled": true,
+            "rgblight": true
+        },
+        "diode_direction": "COL2ROW",
+        "matrix_pins": {
+            "cols": ["GP10", "GP11", "GP12", "GP13", "GP14", "GP15"],
+            "rows": ["GP21", "GP20", "GP19", "GP18", "GP17", "GP16"]
+        },
+        "encoder": {
+            "enabled": true,
+            "rotary": [
+                {"pin_a": "GP4", "pin_b": "GP5"},
+                {"pin_a": "GP2", "pin_b": "GP3"}
+            ]
+        },
+        "rgblight": {
+            "led_count": 16,
+            "animations": {
+                "breathing": true,
+                "rainbow_mood": true,
+                "rainbow_swirl": true,
+                "snake": true,
+                "knight": true,
+                "christmas": true,
+                "static_gradient": true,
+                "rgb_test": true,
+                "alternating": true,
+                "twinkle": true
+            }
+        },
+        "ws2812": {
+            "pin": "GP7"
+        },
+        "split": {
+            "enabled": true,
+            "handedness": {
+                "pin": "GP22"
+            },
+            "serial": {
+                "driver": "vendor",
+                "pin": "GP1"
+            },
+            "transport": {
+                "watchdog": true
+            }
+        }
+    },
+    "layers": [
+        [
+            "KC_ESC",  "KC_1",    "KC_2",    "KC_3",    "KC_4",    "KC_5",
+            "KC_TAB",  "KC_Q",    "KC_W",    "KC_E",    "KC_R",    "KC_T",
+            "KC_LSFT", "KC_A",    "KC_S",    "KC_D",    "KC_F",    "KC_G",
+            "KC_LCTL", "KC_Z",    "KC_X",    "KC_C",    "KC_V",    "KC_B",
+                                  "KC_LGUI", "KC_SPC",  "MO(1)",   "KC_LALT",
+                                             "KC_BSPC", "KC_LSFT", "KC_SPC",
+
+            "KC_6",    "KC_7",    "KC_8",    "KC_9",    "KC_0",    "KC_BSPC",
+            "KC_Y",    "KC_U",    "KC_I",    "KC_O",    "KC_P",    "KC_BSLS",
+            "KC_H",    "KC_J",    "KC_K",    "KC_L",    "KC_SCLN", "KC_QUOT",
+            "KC_N",    "KC_M",    "KC_COMM", "KC_DOT",  "KC_SLSH", "KC_RSFT",
+            "KC_RALT", "MO(2)",   "KC_ENT",  "KC_RGUI",
+            "KC_SPC",  "KC_RSFT", "KC_ENT"
+        ],
+        [
+            "KC_GRV",  "KC_F1",   "KC_F2",   "KC_F3",   "KC_F4",   "KC_F5",
+            "KC_TAB",  "KC_EXLM", "KC_AT",   "KC_HASH", "KC_DLR",  "KC_PERC",
+            "KC_LSFT", "KC_1",    "KC_2",    "KC_3",    "KC_4",    "KC_5",
+            "KC_LCTL", "KC_6",    "KC_7",    "KC_8",    "KC_9",    "KC_0",
+                                  "KC_LGUI", "KC_SPC",  "KC_TRNS", "KC_LALT",
+                                             "KC_DEL",  "KC_LSFT", "KC_SPC",
+
+            "KC_F6",   "KC_F7",   "KC_F8",   "KC_F9",   "KC_F10",  "KC_F11",
+            "KC_CIRC", "KC_AMPR", "KC_ASTR", "KC_LPRN", "KC_RPRN", "KC_F12",
+            "KC_MINS", "KC_EQL",  "KC_LBRC", "KC_RBRC", "KC_PIPE", "KC_GRV",
+            "KC_UNDS", "KC_PLUS", "KC_LCBR", "KC_RCBR", "KC_BSLS", "KC_TILD",
+            "KC_RALT", "KC_TRNS", "KC_ENT",  "KC_RGUI",
+            "KC_SPC",  "KC_RSFT", "KC_ENT"
+        ],
+        [
+            "RGB_TOG", "RGB_HUI", "RGB_SAI", "RGB_VAI", "RGB_SPI", "RGB_MOD",
+            "KC_TAB",  "KC_HOME", "KC_UP",   "KC_END",  "KC_PGUP", "KC_VOLU",
+            "KC_LSFT", "KC_LEFT", "KC_DOWN", "KC_RGHT", "KC_PGDN", "KC_VOLD",
+            "KC_LCTL", "KC_MPRV", "KC_MPLY", "KC_MNXT", "KC_MUTE", "KC_MUTE",
+                                  "KC_LGUI", "KC_SPC",  "KC_TRNS", "KC_LALT",
+                                             "KC_DEL",  "KC_LSFT", "KC_SPC",
+
+            "RGB_RMOD","RGB_HUD", "RGB_SAD", "RGB_VAD", "RGB_SPD", "QK_BOOT",
+            "KC_VOLU", "KC_7",    "KC_8",    "KC_9",    "KC_0",    "KC_BSPC",
+            "KC_VOLD", "KC_4",    "KC_5",    "KC_6",    "KC_SCLN", "KC_QUOT",
+            "KC_MUTE", "KC_1",    "KC_2",    "KC_3",    "KC_SLSH", "KC_RSFT",
+            "KC_RALT", "KC_TRNS", "KC_ENT",  "KC_RGUI",
+            "KC_SPC",  "KC_RSFT", "KC_ENT"
+        ]
+    ],
+    "encoder": {
+        "ccw": [
+            ["KC_VOLD", "KC_WH_U"],
+            ["KC_VOLD", "KC_WH_U"],
+            ["RGB_VAD", "RGB_HUD"]
+        ],
+        "cw": [
+            ["KC_VOLU", "KC_WH_D"],
+            ["KC_VOLU", "KC_WH_D"],
+            ["RGB_VAI", "RGB_HUI"]
+        ]
+    }
+}
