@@ -2,7 +2,7 @@
     "version": 1,
     "notes": "Dactyl Manuform 5x6 with Pi Pico - Custom build with encoders, OLED, and RGB",
     "documentation": "Right-side only build with dual encoders, OLED display, and RGB underglow",
-    "keyboard": "handwired/dactyl_manuform_5x6_pico_custom",
+    "keyboard": "handwired/dactyl_manuform_almang",
     "keymap": "default",
     "layout": "LAYOUT_5x6",
     "config": {
@@ -13,7 +13,7 @@
     },
     "keyboard_config": {
         "manufacturer": "Custom",
-        "keyboard_name": "dactyl_manuform_5x6_pico_custom",
+        "keyboard_name": "dactyl_manuform_almang",
         "maintainer": "almang45",
         "processor": "RP2040",
         "bootloader": "rp2040",

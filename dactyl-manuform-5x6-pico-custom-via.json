@@ -2,7 +2,7 @@
     "version": 1,
     "notes": "Dactyl Manuform 5x6 with Pi Pico - VIA compatible keymap",
     "documentation": "VIA-compatible version for easy customization through VIA interface",
-    "keyboard": "handwired/dactyl_manuform_5x6_pico_custom",
+    "keyboard": "handwired/dactyl_manuform_almang",
     "keymap": "via",
     "layout": "LAYOUT_5x6",
     "config": {
@@ -14,7 +14,7 @@
     },
     "keyboard_config": {
         "manufacturer": "Custom",
-        "keyboard_name": "dactyl_manuform_5x6_pico_custom",
+        "keyboard_name": "dactyl_manuform_almang",
         "maintainer": "almang45",
         "processor": "RP2040",
         "bootloader": "rp2040",
