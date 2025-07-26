@@ -21,10 +21,10 @@
     "layers": [
         [
             "KC_PMNS", "KC_PPLS", "KC_PSLS", "KC_PAST", "KC_DEL",  "KC_BSPC",
-            "KC_P7",   "KC_P8",   "KC_P9",   "UG_TOGG", "KC_HOME", "KC_PGUP",
-            "KC_P4",   "KC_P5",   "KC_P6",   "KC_COMM", "KC_END",  "KC_PGDN",
+            "KC_P7",   "KC_P8",   "KC_P9",   "UG_NEXT", "KC_HOME", "KC_PGUP",
+            "KC_P4",   "KC_P5",   "KC_P6",   "KC_PCMM", "KC_END",  "KC_PGDN",
             "KC_P1",   "KC_P2",   "KC_P3",   "KC_PDOT", "KC_VOLD", "KC_VOLU",
-            "KC_PENT", "KC_NO",   "KC_P0",   "KC_EQL"
+            "KC_PENT", "KC_NO",   "KC_P0",   "KC_PEQL"
         ]
     ],
     "encoder": {
