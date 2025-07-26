@@ -14,7 +14,7 @@
             "unicode": true,
             "oled": true,
             "encoder": true,
-            "rgb_matrix": true
+            "rgblight": true
         }
     },
     "layers": [
