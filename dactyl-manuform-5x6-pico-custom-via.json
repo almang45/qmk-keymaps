@@ -2,9 +2,9 @@
     "version": 1,
     "notes": "Custom Dactyl Manuform 5x6 with Pi Pico - VIA Compatible Version",
     "documentation": "qmk.fm/newbs",
-    "keyboard": "handwired/dactyl_manuform_pi_pico/5x6_right",
+    "keyboard": "handwired/dactyl_manuform_pi_pico_5x6_right",
     "keymap": "via",
-    "layout": "LAYOUT_5x6",
+    "layout": "LAYOUT",
     "config": {
         "features": {
             "bootmagic": true,
