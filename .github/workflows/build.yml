@@ -10,10 +10,8 @@ jobs:
       matrix:
       # List of keymap json files to build
         file:
-        # - almang45-first-matrix.json
-        # - dactyl-manuform-5x6.json
-        # - almang45.json
         # Add your custom Dactyl Manuform keyboard
+        - default
         - dactyl-manuform-5x6-pico-custom.json
         - dactyl-manuform-5x6-pico-custom-via.json
       # End of json file list
@@ -36,22 +34,36 @@ jobs:
     - name: Validate keymap files
       run: |
         echo "🔍 Validating keymap: users/${{ github.actor }}/${{ matrix.file }}"
-        if [ ! -f "users/${{ github.actor }}/${{ matrix.file }}" ]; then
-          echo "❌ Keymap file not found: ${{ matrix.file }}"
-          exit 1
-        fi
+        
+        # Handle default keymap differently
+        if [ "${{ matrix.file }}" = "default" ]; then
+          echo "✅ Default keymap - no file validation needed"
+        else
+          if [ ! -f "users/${{ github.actor }}/${{ matrix.file }}" ]; then
+            echo "❌ Keymap file not found: ${{ matrix.file }}"
+            exit 1
+          fi
 
-        # Validate JSON syntax
-        python3 -c "import json; json.load(open('users/${{ github.actor }}/${{ matrix.file }}'))" || {
-          echo "❌ Invalid JSON syntax in ${{ matrix.file }}"
-          exit 1
-        }
-        echo "✅ Keymap validation passed"
+          # Validate JSON syntax
+          python3 -c "import json; json.load(open('users/${{ github.actor }}/${{ matrix.file }}'))" || {
+            echo "❌ Invalid JSON syntax in ${{ matrix.file }}"
+            exit 1
+          }
+          echo "✅ Keymap validation passed"
+        fi
 
     - name: Build firmware
       run: |
         echo "🔨 Building: users/${{ github.actor }}/${{ matrix.file }}"
-        qmk compile "users/${{ github.actor }}/${{ matrix.file }}"
+        
+        # Handle default keymap with specific command
+        if [ "${{ matrix.file }}" = "default" ]; then
+          echo "🔨 Building default keymap for handwired/dactyl_manuform_pi_pico_5x6_right"
+          qmk compile -kb handwired/dactyl_manuform_pi_pico_5x6_right -km default
+        else
+          echo "🔨 Building custom keymap: users/${{ github.actor }}/${{ matrix.file }}"
+          qmk compile "users/${{ github.actor }}/${{ matrix.file }}"
+        fi
 
         # List generated files for debugging
         echo "📦 Generated files:"
@@ -82,26 +94,3 @@ jobs:
           *.uf2
           build-info-${{ matrix.file }}.txt
         retention-days: 30
-
-  # Optional: Add a validation-only job for faster feedback
-  validate:
-    runs-on: ubuntu-latest
-    container: ghcr.io/qmk/qmk_cli
-    steps:
-    - name: Disable git safe directory checks
-      run : git config --global --add safe.directory '*'
-
-    - name: Checkout userspace
-      uses: actions/checkout@v4
-      with:
-        path: users/${{ github.actor }}
-
-    - name: Validate all JSON files
-      run: |
-        echo "🔍 Validating all JSON keymap files..."
-        for json_file in users/${{ github.actor }}/*.json; do
-          if [ -f "$json_file" ]; then
-            echo "Validating $(basename $json_file)..."
-            python3 -c "import json; json.load(open('$json_file'))" && echo "✅ Valid" || echo "❌ Invalid"
-          fi
-        done
