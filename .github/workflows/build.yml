@@ -12,8 +12,8 @@ jobs:
         file:
         # Add your custom Dactyl Manuform keyboard
         - default
-        - dactyl-manuform-5x6-pico-custom.json
-        - dactyl-manuform-5x6-pico-custom-via.json
+        # - dactyl-manuform-5x6-pico-custom.json
+        # - dactyl-manuform-5x6-pico-custom-via.json
       # End of json file list
     steps:
     - name: Disable git safe directory checks
